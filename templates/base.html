@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html >
+<!--  Website template by freewebsitetemplates.com  -->
+<html>
+
+<head>
+	<title>Pet Shop</title>
+	<meta  charset=iso-8859-1" />
+	<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
+	<!--[if IE 6]>
+		<link href="css/ie6.css" rel="stylesheet" type="text/css" />
+	<![endif]-->
+	<!--[if IE 7]>
+        <link href="css/ie7.css" rel="stylesheet" type="text/css" />  
+	<![endif]-->
+<style>
+a{
+	text-decoration: none;
+}
+</style>
+</head>
+
+<body>
+{% if user.is_authenticated %}
+	{% if user.is_superuser %}
+		<p style="float: left; margin-left: 20px;"><a style="color:white;" href="{% url 'allpet' %}">Admin Dashboard</a></p>
+	{% endif %}
+	<p style="float: right; margin-right: 20px;">Hello {{user.first_name}}<a href="{% url 'cartitem' %}">Cart {{cartt}}</a>&nbsp;&nbsp;&nbsp;<a href="{% url 'logout' %}">Logout</a>
+	</p>
+	{% else %}
+	<p style="float: right; margin-right: 20px;"><a style="color: black;text-decoration: none;" href="{% url 'register' %}">Register</a>&nbsp;&nbsp;&nbsp;<a style="color:black;text-decoration: none;" href="{% url 'login' %}">Login</a></p>
+	{% endif %}
+
+{% block content %}
+
+{% endblock %}
+
+<div id="footer">
+				<center><h1 style="color:#ffad00;padding-top:20px;">BLOGS</h1></center>
+			        <div class="section">
+						<ul>
+							<li>
+								<img src="{% static 'images/friendly-pets.jpg' %}" width="240" height="186" alt="Pet Shop" title="Pet Shop">
+								<h2><a href="index.html">Friendly Pets</a></h2>
+								<p>
+								   Lorem ipsum dolor sit amet, consectetuer adepiscing elit,  sed diam nonummy nib. <a class="more" href="index.html">Read More</a> 
+								</p>
+							</li>	
+							<li>
+								<img src="{% static 'images/pet-lover2.jpg' %}" width="240" height="186" alt="Pet Shop" title="Pet Shop">
+								<h2><a href="index.html">How dangerous are they</a></h2>
+								<p>
+								   Lorem ipsum dolor sit amet, cons ectetuer adepis cing, sed diam euis. <a class="more" href="index.html">Read More</a> 
+								</p>
+							</li>	
+							<li>
+								<img src="{% static 'images/healthy-dog.jpg' %}" width="240" height="186" alt="Pet Shop" title="Pet Shop">
+								<h2><a href="index.html">Keep them healthy</a></h2>
+								<p>
+								   Lorem ipsum dolor sit amet, consectetuer adepiscing elit,  sed diam nonu mmy. <a class="more" href="index.html">Read More</a> 
+								</p>
+							</li>	
+							<li>
+								
+								<h2><a href="index.html">Love...love...love...pets</a></h2>
+								<p>
+								     Lorem ipsum dolor sit amet, consectetuer adepiscing elit,  sed diameusim. <a class="more" href="index.html">Read More</a> 
+								</p>
+								<img src="{% static 'images/pet-lover.jpg' %}" width="240" height="186" alt="Pet Shop" title="Pet Shop">
+							</li>	
+						</ul>
+					</div>
+					<div id="footnote">
+						<div class="section">
+						   &copy; 2019 <a href="index.html">Petshop</a>. All Rights Reserved. Designed & Developed By <strong>Sameer Khan</strong>
+						</div>
+					</div>
+			</div>
+			
+	
+</body>
+</html>

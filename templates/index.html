@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+	
+
+			<div id="header">
+
+	           		<a href="index.html" id="logo"><img src="{% static 'images/logo.gif' %}" width="310" height="114" alt="" title=""></a>
+					<ul class="navigation">
+						<li class="active"><a href="{% url 'index' %}">Home</a></li>
+						<li><a href="{% url 'petmart' %}">PetMart</a></li>
+						<li><a href="{% url 'about' %}">About us</a></li>
+						<li><a href="{% url 'blog' %}">Blog</a></li>
+						<li><a href="{% url 'myaccount' %}">MyAccount</a></li>
+						<li><a href="{% url 'contact' %}">Contact us</a></li>
+
+					</ul>
+			</div>
+			
+
+
+
+			<div id="body">
+			
+					<div class="banner">&nbsp;</div>
+
+					<div style="background-color: #310000;margin:30px 0px;padding:5px 0px;">
+						<center><h1 style="color:#ffad00;">Our Pets Collection</h1></center>
+					</div>
+					<div class="gallery" style="width: 80%;margin-left:150px;">
+						{% for i in pet %}
+						{% if forloop.counter <= 4 %}
+				   			<div style="background-color: #ffad00;width: 20%;float: left; border:2px solid black;padding-top:20px;margin: 20px;">
+				   				<center>
+				   				<a href="{% url 'view' i.id %}">
+				   				
+				   				<img src="/media/{{i.Image}}/"style="width:200px;height: 200px;">
+				   				<h3>{{i.name}}</h3>
+				   				<h4>Price: ${{i.price}}</h4>
+				   				<button style="background-color:blue;color:white;padding: 5px;margin:0px 0px 5px 0px;">View Product</button>
+				   				</a>
+				   				<a href="{% url 'cart' i.id %}">
+				   				<button style="background-color:green;color:white;padding: 5px;margin:0px 0px 5px 0px;">Add To Cart</button>
+				   				</a>
+				   				</center>
+
+				   			</div>
+				   			{% endif %}
+				   			{% endfor %}
+				   			<div>
+				   				<a style="text-align: right;" href="{% url 'petmart' %}"><h2>More...</h2></a>
+				   			</div>
+				   		</div>
+					    
+			       <div id="content">
+				   		
+				   
+				   <!-- <div class="featured">
+				        <ul>
+							<li><a href="index.html"><img src="{% static 'images/organic-and-chemical-free.jpg' %}" width="300" height="90" alt="Pet Shop" title="Pet Shop" ></a></li>
+							<li><a href="index.html"><img src="{% static 'images/good-food.jpg' %}" width="300" height="90" alt="Pet Shop" title="Pet Shop" ></a></li>
+							<li class="last"><a href="index.html"><img src="{% static 'images/pet-grooming.jpg' %}" width="300" height="90" alt="Pet Shop" title="Pet Shop" ></a></li>
+						</ul>
+				        
+				   </div> -->
+				  </div>
+			{% endblock %}}
+}

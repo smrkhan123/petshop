@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+	<style type="text/css">
+		.dog{
+			float: left;
+			width: 50%;
+		}
+		.cat{
+			width: 50%;
+			float: left;
+			
+
+		}
+	</style>
+
+	  
+			<div id="header">
+	           		<a href="index.html" id="logo"><img src="{% static 'images/logo.gif' %}" width="310" height="114" alt="" title=""></a>
+					<ul class="navigation">
+						<li ><a href="{% url 'index' %}">Home</a></li>
+						<li class="active"><a href="{% url 'petmart' %}">PetMart</a></li>
+						<li><a href="{% url 'about' %}">About us</a></li>
+						<li><a href="{% url 'blog' %}">Blog</a></li>
+						<li><a href="{% url 'myaccount' %}">MyAccount</a></li>
+						<li><a href="{% url 'contact' %}">Contact us</a></li>
+					</ul>
+			</div>
+
+				<div style="margin:20px 0px;padding:5px 0px;">
+						<center><h1 style="color:black;">Our Dogs Collection</h1></center>
+					</div>
+					<div style="width:1100px; margin:0 auto; ">
+				   				<a style="text-align: left;" href="{% url 'petmart' %}"><h2>Back...</h2></a>
+				   			</div>
+				   			<div style="width:1000px;margin:0 auto; ">
+								<div style="width:50%;float: left;">
+									<a href="/media/{{pet.Image}}"><img class="img" src="/media/{{pet.Image}}" style="width:80%;"></a>
+								</div>
+							
+				   			<div style="width:50%;float: left;">
+								<table>
+								<tr>
+									<td><h2>{{pet.name}}</h2></td>
+								</tr>
+								<tr>
+									<td><p><b>Price: ${{pet.price}}</b></p></td>
+								</tr>
+								<tr>
+									<td><p><b>Color: {{pet.color}}</b></p></td>
+								</tr>
+								<tr>
+									<td><p><b>Age: {{pet.age}}</b></p></td>
+								</tr>
+								<tr>
+									<td><p><b>Breed: {{pet.breed}}</b></p></td>
+								</tr>
+								<tr>
+									<td>
+									<a href="{% url 'cart' pet.id %}"><button style="background-color: dodgerblue;padding: 5px 10px; color:white;">Add To Cart</button></a>
+									<a href="{% url 'buynow1' pet.id %}"><button style="background-color: green;padding: 5px 10px; color:white;">Buy Now</button></a>
+									</td>
+								</tr>
+								</table>
+						</div>
+				   			
+				   		</div>
+					    
+			<div id="body">
+			
+			       <div id="content">
+				         
+						
+				   </div>
+				   
+				   
+			
+			</div>
+			
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+	<style type="text/css">
+		.dog{
+			float: left;
+			width: 50%;
+		}
+		.cat{
+			width: 50%;
+			float: left;
+			
+
+		}
+	</style>
+
+	  
+			<div id="header">
+	           		<a href="index.html" id="logo"><img src="{% static 'images/logo.gif' %}" width="310" height="114" alt="" title=""></a>
+					<ul class="navigation">
+						<li ><a href="{% url 'index' %}">Home</a></li>
+						<li class="active"><a href="{% url 'petmart' %}">PetMart</a></li>
+						<li><a href="{% url 'about' %}">About us</a></li>
+						<li><a href="{% url 'blog' %}">Blog</a></li>
+						<li><a href="{% url 'myaccount' %}">MyAccount</a></li>
+						<li><a href="{% url 'contact' %}">Contact us</a></li>
+					</ul>
+			</div>
+
+				<div style="margin-top: 50px;">
+						 	<center><h1>PET MART</h1></center>
+						 </div>
+				<div style="width: 960px;margin:0 auto; margin-top:50px;">		
+				        <div class="content"">
+						<div class="dog" style="margin-bottom: 100px;">
+							<a href="{% url 'dog' %}" style="text-decoration: none;">
+								<div style="border:3px solid grey;background-color:#FF9E01;width: 400px; height:100%;">
+								<img src="{% static 'images/dog1.jpg' %}" style="width: 400px; height:100%;">
+								<center><h1 style="color:black;">DOGS</h1></center>
+								</div>
+							</a>
+						</div>
+
+						<div class="cat">
+							<a href="{% url 'cat' %}" style="text-decoration: none;">
+								<div style="border:3px solid grey;background-color:#FF9E01;width: 400px; height:100%;margin-left: 70px;">
+								<img src="{% static 'images/cat1.jpg' %}" style="width:400px; height:100%;">
+								<center><h1 style="color:black;">CATS</h1></center>
+								</div>
+							</a>
+						</div>
+						        
+						</div>
+
+	</div>
+			<div id="body">
+			
+			       <div id="content">
+				         
+						
+				   </div>
+				   
+				   
+			
+			</div>
+			
+{% endblock %}

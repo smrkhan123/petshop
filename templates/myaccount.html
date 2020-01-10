@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+	
+<style type="text/css">
+	th{
+		padding: 10px;
+		width:50%;
+		border:1px solid black;
+	}
+	td{
+		padding: 10px;
+		width: 50%;
+		
+		border:1px solid black;
+	}
+</style>
+			<div id="header">
+
+	           		<a href="{% url 'index' %}" id="logo"><img src="{% static 'images/logo.gif' %}" width="310" height="114" alt="" title=""></a>
+					<ul class="navigation">
+						<li><a href="{% url 'index' %}">Home</a></li>
+						<li><a href="{% url 'petmart' %}">PetMart</a></li>
+						<li><a href="{% url 'about' %}">About us</a></li>
+						<li><a href="{% url 'blog' %}">Blog</a></li>
+						<li class="active"><a href="{% url 'myaccount' %}">MyAccount</a></li>
+						<li><a href="{% url 'contact' %}">Contact us</a></li>
+
+					</ul>
+			</div>
+			
+
+
+
+			<div id="body">
+			
+					
+
+					<div style="margin:30px 0px;padding:5px 0px;">
+						<center><h1>My Account</h1></center>
+					</div>
+					<div>
+						<table border="2" style="width:600px;margin: 0 auto;margin-bottom: 50px;">
+							<tr>
+								<th>Username</th><td>smrkhan123</td>
+							</tr>
+							<tr>
+								<th>Name</th><td>Sameer</td>
+							</tr>
+							<tr>
+								<th>Email</th><td>sk862147@gmail.com</td>
+							</tr>
+							<tr>
+								<th>Cart Count</th><td>0 &nbsp;&nbsp;&nbsp;<button>Buy Now</button></td>
+							</tr>
+
+						</table>
+					</div> 
+			       <div id="content">
+				  </div>
+			{% endblock %}}
+}

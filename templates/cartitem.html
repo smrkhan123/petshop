@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <style type="text/css">
+    .dog{
+      float: left;
+      width: 50%;
+    }
+    .cat{
+      width: 50%;
+      float: left;
+      
+
+    }
+    th{
+    border:2px solid black;
+    padding: 10px 20px;
+  }
+  table{
+    border-radius: 10px;
+  }
+  td{
+    border:2px solid black;
+    padding: 10px 20px;
+    text-align: center;
+  }
+  </style>
+
+    
+      <div id="header">
+                <a href="index.html" id="logo"><img src="{% static 'images/logo.gif' %}" width="310" height="114" alt="" title=""></a>
+          <ul class="navigation">
+            <li ><a href="{% url 'index' %}">Home</a></li>
+            <li class="active"><a href="{% url 'petmart' %}">PetMart</a></li>
+            <li><a href="{% url 'about' %}">About us</a></li>
+            <li><a href="{% url 'blog' %}">Blog</a></li>
+            <li><a href="{% url 'myaccount' %}">MyAccount</a></li>
+            <li><a href="{% url 'contact' %}">Contact us</a></li>
+          </ul>
+      </div>
+
+        <div style="width: 960px;margin:0 auto; margin-top:50px;">    
+                <div class="content"">
+            
+                  <table style="border:2px solid black; margin: 0 auto;">
+              <tr>
+                <th colspan="9"><h1 style="font-size: 30px;">My Cart</h1></th>
+              </tr>
+              <tr>
+                <th>Pet Name</th>
+                <th>Category</th>
+                <th>Breed</th>
+                <th>Price</th>
+                <th>Color</th>
+                <th>Age</th>
+                <th>Image</th>
+                <th colspan="2">Action</th>
+              </tr>
+              {% for i in cart %}
+              <tr>
+                <td>{{i.name}}</td>
+                <td>{{i.category}}</td>
+                <td>{{i.breed}}</td>
+                <td>${{i.price}}</td>
+                <td>{{i.color}}</td>
+                <td>{{i.age}} year/s</td>
+                <td><img src="/media/{{i.Image}}" style="max-width: 80px; height: 80px;"></td>
+                <td><a href="{% url 'buynow' i.id %}">Buy Now</a></td>
+                <td><a href="{% url 'deletecartitem' i.id %}">Delete</a></td>
+              </tr>
+              {% endfor %}
+              <tr>
+                <th colspan="7"><h2 style="font-size: 25px;">Total: ${{total}}/-</h2></th>
+                <td colspan="2"><a href="{% url 'buyall' %}"><button style="padding: 10px 20px;border-radius: 10px; background-color: #B81D22;color:white;">Buy All</button></a></td>
+              </tr>
+            </table>
+           
+           </div>
+            
+                    
+            </div>
+
+  </div>
+      <div id="body">
+      
+             <div id="content">
+                 
+            
+           </div>
+           
+           
+      
+      </div>
+      
+{% endblock %}
+
+
